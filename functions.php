@@ -1,11 +1,19 @@
 <?php
 
 // Adding Resources to the Theme (CSS & JS)
-function theme_resources() {
-	// Adding style.css
+
+// Adding CSS files
+function theme_styles() {
 	wp_enqueue_style('style', get_stylesheet_uri());
+	wp_enqueue_style('main', get_template_directory_uri().'/css/dist/main.css');
 }
-add_action('wp_enqueue_scripts', 'theme_resources');
+add_action('wp_enqueue_scripts', 'theme_styles');
+
+// Adding Javascript files
+function theme_scripts() {
+	wp_enqueue_script('main', get_template_directory_uri().'/js/dist/main.js');
+}
+add_action('wp_enqueue_scripts', 'theme_scripts');
 
 
 
